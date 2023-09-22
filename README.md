@@ -16,6 +16,11 @@ source helpers.sh
 curl -s https://raw.githubusercontent.com/gabtec/shell-h/main/lib/helpers.sh > helpers.sh
 # then import it
 source helpers.sh
+
+# OPTION 3: direct load into source - no file save
+# you may also find source represented as a single dot "."
+source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/gabtec/shell-h/main/lib/helpers.sh)"
+
 ```
 
 ## :book: HELPERS List
