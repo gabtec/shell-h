@@ -52,14 +52,20 @@ log() {
 # OR, in case figlet is not available,
 # just a simple info message
 # @param { string } message - the message to output
+# @param { int } terminal width - the width available to print banner without new line
 print_banner() {
     MSG="$1"
+    T_WIDTH=80
+
+    if [ $2 > 80 ]; then  
+        T_WIDTH=$2
+    fi
 
     BANNER=$(figlet -k "$1")
 
     if [ $? -eq 0 ]
     then
-        figlet -k "$1"
+        figlet -w "$T_WIDTH" -k "$1"
         echo ""
     else 
         echo " --------- $1 ---------"

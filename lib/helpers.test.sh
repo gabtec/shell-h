@@ -11,4 +11,5 @@ log info info
 log warn warning
 log err error
 
-print_banner "Demo Banner"
+print_banner "Demo Banner Large"
+print_banner "Demo Banner Large" 150

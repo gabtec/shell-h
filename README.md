@@ -68,7 +68,7 @@ Example:
 
 ```sh
 # usage: print_banner "some message"
-print_banner "Demo Banner"
+print_banner "Demo Banner" 86
 # --------- Demo Banner ---------
 # or
 #  ____                            ____
