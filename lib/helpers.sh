@@ -66,6 +66,7 @@ print_banner() {
     if [ $? -eq 0 ]
     then
         figlet -w "$T_WIDTH" -k "$1"
+        printf %"$T_WIDTH"s |tr " " "-"
         echo ""
     else 
         echo " --------- $1 ---------"
