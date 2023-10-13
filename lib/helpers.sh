@@ -47,3 +47,22 @@ log() {
         * ) printf "[${BOLD_RED} ERROR ${NC}]: %s \n" "$MSG" 
     esac 
 }
+
+# Prints an ASCII Art Message Banner
+# OR, in case figlet is not available,
+# just a simple info message
+# @param { string } message - the message to output
+print_banner() {
+    MSG="$1"
+
+    BANNER=$(figlet -k "$1")
+
+    if [ $? -eq 0 ]
+    then
+        figlet -k "$1"
+        echo ""
+    else 
+        echo " --------- $1 ---------"
+        echo ""
+    fi 
+}

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source ./helpers.sh
+source ./lib/helpers.sh
 
 # test timestamp()
 timestamp
@@ -10,3 +10,5 @@ log ok success
 log info info
 log warn warning
 log err error
+
+print_banner "Demo Banner"
