@@ -48,6 +48,7 @@ log() {
     esac 
 }
 
+declare -i TERM_DEFAULT_SIZE=80
 # Prints an ASCII Art Message Banner
 # OR, in case figlet is not available,
 # just a simple info message
@@ -55,18 +56,19 @@ log() {
 # @param { int } terminal width - the width available to print banner without new line
 print_banner() {
     MSG="$1"
-    T_WIDTH=80
 
-    if [ $2 > 80 ]; then  
-        T_WIDTH=$2
+    # check 2nd arg exists
+    if [ ! -z $2 ]; then
+        # if exists and if bigger then default, replace
+        if [ $2 -gt $TERM_DEFAULT_SIZE ]; then  
+            TERM_DEFAULT_SIZE=$2
+        fi
     fi
 
-    BANNER=$(figlet -k "$1")
 
-    if [ $? -eq 0 ]
-    then
-        figlet -w "$T_WIDTH" -k "$1"
-        printf %"$T_WIDTH"s |tr " " "-"
+    if [ ! -z $(which figlet) ]; then
+        figlet -w "$TERM_DEFAULT_SIZE" -k "$1"
+        printf %"$TERM_DEFAULT_SIZE"s | tr " " "-"
         echo ""
     else 
         echo " --------- $1 ---------"
