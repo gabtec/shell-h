@@ -18,6 +18,7 @@
     BOLD_BLUE='\033[1;34m'
     YELLOW='\033[0;33m'
     BOLD_YELLOW='\033[1;33m'
+    BLACK='\033[0;30m'
     NC='\033[0m' # No Color
     # Usage: printf "I ${RED}love${NC} Stack Overflow\n"
     # in echo use -e to allow \escape
@@ -26,11 +27,13 @@
     # printf "I ${RED}love${NC} Stack Overflow\n"
 # -- end colors list
 
+# =====================================================================================================
 # Outputs current time as a string in the format: YYYYMMDDHHMMSS
 timestamp() {
   date +"%Y%m%d%H%M%S"
 }
 
+# =====================================================================================================
 # Writes a log message to stdout using colors
 # @param { string } type    - the type of log message [ok, err, info, warn]
 # @param { string } message - the message to output
@@ -48,6 +51,25 @@ log() {
     esac 
 }
 
+# =====================================================================================================
+# Writes a color message to stdout
+# @param { string } color   - the text color [red, green, yellow, etc]
+# @param { string } message - the message to output
+#
+printc() {
+    COLOR="$1"
+    MSG="$2"
+
+    case "$COLOR" in 
+        "green"   ) printf "${BOLD_GREEN}%s${NC}\n" "$MSG";;
+        "blue" ) printf "${BOLD_BLUE}%s${NC}\n" "$MSG";;
+        "yellow" ) printf "${BOLD_YELLOW}%s${NC}\n" "$MSG";;
+        "red" ) printf "${BOLD_RED}%s${NC}\n" "$MSG";;
+        # default = black
+        * ) printf "${BLACK}%s${NC}\n" "$MSG" 
+    esac 
+}
+# =====================================================================================================
 declare -i TERM_DEFAULT_SIZE=80
 # Prints an ASCII Art Message Banner
 # OR, in case figlet is not available,
@@ -65,7 +87,6 @@ print_banner() {
         fi
     fi
 
-
     if [ ! -z $(which figlet) ]; then
         figlet -w "$TERM_DEFAULT_SIZE" -k "$1"
         printf %"$TERM_DEFAULT_SIZE"s | tr " " "-"
@@ -75,3 +96,5 @@ print_banner() {
         echo ""
     fi 
 }
+
+# =====================================================================================================
