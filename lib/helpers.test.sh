@@ -10,6 +10,8 @@ log ok success
 log info info
 log warn warning
 log err error
+log danger danger
+log del deleting
 
 printc red vermelho
 printc blue azul

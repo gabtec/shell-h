@@ -46,6 +46,8 @@ log() {
         "ok"   ) printf "[${BOLD_GREEN}   OK  ${NC}]: %s \n" "$MSG";;
         "info" ) printf "[${BOLD_BLUE}  INFO ${NC}]: %s \n" "$MSG";;
         "warn" ) printf "[${BOLD_YELLOW}WARNING${NC}]: %s \n" "$MSG";;
+        "danger" ) printf "[${BOLD_RED} DANGER${NC}]: %s \n" "$MSG";;
+        "del" ) printf "[${BOLD_RED}  DEL  ${NC}]: %s \n" "$MSG";;
         # default = error
         * ) printf "[${BOLD_RED} ERROR ${NC}]: %s \n" "$MSG" 
     esac 
