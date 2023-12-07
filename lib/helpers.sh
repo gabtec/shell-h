@@ -100,3 +100,27 @@ print_banner() {
 }
 
 # =====================================================================================================
+# -------------------------------------------------- #
+# Checks if a list of required applications,
+# are already installed on your system.
+#
+# Parameters:
+#   - { Array } - the list of app names tpo check
+# Returns:
+#   - exit 0, if any not found
+#   - do nothing, if all found
+# -------------------------------------------------- #
+function h_check_requirements() {
+  list="$1"
+  
+  for it in "${list[@]}"; do
+    # do your logic
+    isFound=$(which $it)
+
+    if [[ "$?" -ne 0 ]]; then
+      log err "$it is not installed"
+      exit 4
+    fi
+  done
+}
+# =====================================================================================================
