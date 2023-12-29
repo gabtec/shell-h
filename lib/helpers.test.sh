@@ -12,6 +12,8 @@ log warn warning
 log err error
 log danger danger
 log del deleting
+log pass Test Pass
+log fail Test Fail
 
 printc red vermelho
 printc blue azul
