@@ -113,10 +113,9 @@ print_banner() {
 #   - do nothing, if all found
 # -------------------------------------------------- #
 function h_check_requirements() {
-  list="$1"
+  list=("$@")
   
   for it in "${list[@]}"; do
-    # do your logic
     isFound=$(which $it)
 
     if [[ "$?" -ne 0 ]]; then

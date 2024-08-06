@@ -23,3 +23,7 @@ printc black preto
 
 print_banner "Demo Banner Large"
 print_banner "Demo Banner Large" 150
+
+# test requirements check
+requires=("gh" "op" "xxp")
+h_check_requirements "${requires[@]}"

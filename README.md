@@ -78,3 +78,14 @@ print_banner "Demo Banner" 86
 # |____/  \___||_| |_| |_| \___/  |____/  \__,_||_| |_||_| |_| \___||_|
 #
 ```
+
+#### h_check_requirements()
+
+Checks if a provided list of packages, are installed on the system
+
+Example:
+
+```sh
+requires=("gh" "op" "xxp")
+h_check_requirements "${requires[@]}"
+```
